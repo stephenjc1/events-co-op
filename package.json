@@ -1,24 +1,31 @@
 {
-  "name": "be-nc-news",
+  "name": "co-op-events",
   "version": "1.0.0",
-  "description": "bc-nc-news",
+  "description": "co-op-events",
   "main": "index.js",
   "scripts": {
     "setup-dbs": "psql -f ./db/setup.sql",
     "seed": "knex seed:run",
-    "test": "jest"
+    "test": "jest",
+    "migrate-make": "knex migrate:make",
+    "migrate-latest": "knex migrate:latest",
+    "migrate-rollback": "knex migrate:rollback"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/northcoders/be-nc-news.git"
+    "url": "git+https://github.com/stephenjc1/events-co-op"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/northcoders/be-nc-news/issues"
+    "url": "https://github.com/stephenjc1/events-co-op/issues"
   },
-  "homepage": "https://github.com/northcoders/be-nc-news#readme",
-  "dependencies": {},
+  "homepage": "https://github.com/stephenjc1/events-co-op#readme",
+  "dependencies": {
+    "knex": "^0.21.15",
+    "knex-migrate": "^1.7.4",
+    "pg": "^8.5.1"
+  },
   "devDependencies": {}
 }
