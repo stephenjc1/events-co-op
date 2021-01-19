@@ -23,9 +23,12 @@
   },
   "homepage": "https://github.com/stephenjc1/events-co-op#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "knex": "^0.21.15",
     "knex-migrate": "^1.7.4",
     "pg": "^8.5.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "supertest": "^6.1.1"
+  }
 }
