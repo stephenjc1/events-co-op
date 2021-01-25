@@ -1,9 +1,12 @@
 const express = require("express");
+const apiRouter = require("./routes/api.router");
+const cors = require('cors');
+
 const app = express();
 // const { handle404s, handle500s, handleCustoms, handle400s } = require('./errors');
 
-const apiRouter = require("./routes/api.router");
-
+app.use(cors());
+app.use(express.static('public'));
 app.use(express.json());
 
 app.use("/api", apiRouter);

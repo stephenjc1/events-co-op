@@ -3,6 +3,7 @@ exports.up = function (knex) {
     eventsTable.increments("event_id").primary();
     eventsTable.string("type");
     eventsTable.string("location");
+    eventsTable.string("date_time");
     eventsTable.text("details");
     eventsTable.integer("attendees").defaultTo(0);
     eventsTable.string('host').references('users.username');

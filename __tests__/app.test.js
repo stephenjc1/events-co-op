@@ -34,5 +34,37 @@ it('Status: 200 successful request returns an array of events', () => {
   });
 });
     });
+    describe('POST', () => { 
+     it('POST status:201, returns new event when passed a valid event', () => {
+    const eventToPost = { type: '5 a-side football', location: "Manchester central powerleague", date_time: "2021-03-10 19:00:00", host: 'jessjelly', details: 'friendly game of 5 a-side.'};
+      return request(app)
+      .post('/api/events')
+      .send(eventToPost)
+      .expect(201)
+      .then(({ body : { event }}) => {
+        expect(Object.keys(event)).toEqual(
+          expect.arrayContaining([
+            'type',
+            'location',
+            'date_time',
+            'host',
+            'details',
+          ])
+        )
+      })
+     }); 
+     });
   });  
+  describe('/events/:event_id', () => { 
+    describe('GET', () => { 
+   it('GET status:200, serves up an event by id', () => { 
+     return request(app)
+      .get('/api/events/1')
+      .expect(200)
+      .then((res) => {
+    expect(res.body.event.event_id).toBe(1);
+  })
+   }); 
+   });
+     });
  });
